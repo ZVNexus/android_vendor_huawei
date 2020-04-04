@@ -19,34 +19,9 @@
 soong_namespace {
 }
 
-cc_prebuilt_library_shared {
-	name: "libqct_resampler",
-	owner: "huawei",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/lib/libqct_resampler.so"],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-}
-
-android_app_import {
-	name: "workloadclassifier",
-	owner: "huawei",
-	apk: "proprietary/app/workloadclassifier/workloadclassifier.apk",
-	certificate: "platform",
-	dex_preopt: {
-		enabled: false,
-	},
-}
-
 android_app_import {
 	name: "WfdService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/priv-app/WfdService/WfdService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -57,7 +32,7 @@ android_app_import {
 
 android_app_import {
 	name: "CneApp",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/vendor/app/CneApp/CneApp.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -68,7 +43,7 @@ android_app_import {
 
 android_app_import {
 	name: "TimeService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/vendor/app/TimeService/TimeService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -79,7 +54,7 @@ android_app_import {
 
 android_app_import {
 	name: "CallFeaturesSetting",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/CallFeaturesSetting/CallFeaturesSetting.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -90,7 +65,7 @@ android_app_import {
 
 android_app_import {
 	name: "DeviceInfo",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/DeviceInfo/DeviceInfo.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -101,7 +76,7 @@ android_app_import {
 
 android_app_import {
 	name: "DynamicDDSService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/DynamicDDSService/DynamicDDSService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -111,8 +86,51 @@ android_app_import {
 }
 
 android_app_import {
+	name: "HotwordEnrollmentOKGoogleWCD9330",
+	owner: "google",
+	apk: "proprietary/priv-app/HotwordEnrollmentOKGoogleWCD9330/HotwordEnrollmentOKGoogleWCD9330.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "HotwordEnrollmentXGoogleWCD9330",
+	owner: "google",
+	apk: "proprietary/priv-app/HotwordEnrollmentXGoogleWCD9330/HotwordEnrollmentXGoogleWCD9330.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+        name: "HotwordEnrollmentTGoogleWCD9330",
+        owner: "google",
+        apk: "proprietary/priv-app/HotwordEnrollmentTGoogleWCD9330/HotwordEnrollmentTGoogleWCD9330.apk",
+        presigned: true,
+        dex_preopt: {
+                enabled: false,
+        },
+	privileged: true,
+}
+
+android_app_import {
+        name: "HwSarControlService",
+        owner: "huawei",
+        apk: "proprietary/app/HwSarControlService/HwSarControlService.apk",
+        certificate: "platform",
+        dex_preopt: {
+                enabled: false,
+        }
+}
+
+android_app_import {
 	name: "PowerOffAlarm",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/PowerOffAlarm/PowerOffAlarm.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -123,7 +141,7 @@ android_app_import {
 
 android_app_import {
 	name: "QtiSystemService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/QtiSystemService/QtiSystemService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -134,7 +152,7 @@ android_app_import {
 
 android_app_import {
 	name: "QtiTelephonyService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/QtiTelephonyService/QtiTelephonyService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -145,7 +163,7 @@ android_app_import {
 
 android_app_import {
 	name: "SimSettings",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/SimSettings/SimSettings.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -156,7 +174,7 @@ android_app_import {
 
 android_app_import {
 	name: "atfwd",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/atfwd/atfwd.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -167,7 +185,7 @@ android_app_import {
 
 android_app_import {
 	name: "datastatusnotification",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/datastatusnotification/datastatusnotification.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -178,7 +196,7 @@ android_app_import {
 
 android_app_import {
 	name: "embms",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/embms/embms.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -189,7 +207,7 @@ android_app_import {
 
 android_app_import {
 	name: "imssettings",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/imssettings/imssettings.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -200,7 +218,7 @@ android_app_import {
 
 android_app_import {
 	name: "remotesimlockservice",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/remotesimlockservice/remotesimlockservice.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -211,7 +229,7 @@ android_app_import {
 
 android_app_import {
 	name: "uceShimService",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/uceShimService/uceShimService.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -222,7 +240,7 @@ android_app_import {
 
 android_app_import {
 	name: "uimgbaservice",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/uimgbaservice/uimgbaservice.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -233,7 +251,7 @@ android_app_import {
 
 android_app_import {
 	name: "uimlpaservice",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/uimlpaservice/uimlpaservice.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -244,7 +262,7 @@ android_app_import {
 
 android_app_import {
 	name: "uimremoteclient",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/uimremoteclient/uimremoteclient.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -255,7 +273,7 @@ android_app_import {
 
 android_app_import {
 	name: "uimremoteserver",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/app/uimremoteserver/uimremoteserver.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -266,7 +284,7 @@ android_app_import {
 
 android_app_import {
 	name: "dpmserviceapp",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/priv-app/dpmserviceapp/dpmserviceapp.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -278,7 +296,7 @@ android_app_import {
 
 android_app_import {
 	name: "ims",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/priv-app/ims/ims.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -290,7 +308,7 @@ android_app_import {
 
 android_app_import {
 	name: "qcrilmsgtunnel",
-	owner: "huawei",
+	owner: "qcom",
 	apk: "proprietary/product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
 	certificate: "platform",
 	dex_preopt: {
@@ -300,27 +318,125 @@ android_app_import {
 	product_specific: true,
 }
 
-dex_import {
-	name: "QPerformance",
+android_app_import {
+	name: "CNEService",
 	owner: "huawei",
-	jars: ["proprietary/framework/QPerformance.jar"],
+	apk: "proprietary/priv-app/CNEService/CNEService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
 }
 
-dex_import {
-	name: "UxPerformance",
+android_app_import {
+	name: "CarrierServices",
 	owner: "huawei",
-	jars: ["proprietary/framework/UxPerformance.jar"],
+	apk: "proprietary/priv-app/CarrierServices/CarrierServices.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "CarrierSetup",
+	owner: "huawei",
+	apk: "proprietary/priv-app/CarrierSetup/CarrierSetup.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "ConnMO",
+	owner: "huawei",
+	apk: "proprietary/priv-app/ConnMO/ConnMO.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "DCMO",
+	owner: "huawei",
+	apk: "proprietary/priv-app/DCMO/DCMO.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "DMService",
+	owner: "huawei",
+	apk: "proprietary/priv-app/DMService/DMService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "DiagMon",
+	owner: "huawei",
+	apk: "proprietary/priv-app/DiagMon/DiagMon.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "Entitlement",
+	owner: "huawei",
+	apk: "proprietary/priv-app/Entitlement/Entitlement.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "HiddenMenu",
+	owner: "huawei",
+	apk: "proprietary/priv-app/HiddenMenu/HiddenMenu.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "SprintDM",
+	owner: "huawei",
+	apk: "proprietary/priv-app/SprintDM/SprintDM.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
 }
 
 dex_import {
 	name: "WfdCommon",
-	owner: "huawei",
+	owner: "qcom",
 	jars: ["proprietary/framework/WfdCommon.jar"],
 }
 
 dex_import {
 	name: "tcmclient",
-	owner: "huawei",
+	owner: "qcom",
 	jars: ["proprietary/framework/tcmclient.jar"],
 }
 

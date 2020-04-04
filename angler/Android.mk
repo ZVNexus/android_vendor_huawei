@@ -16,4 +16,63 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),angler)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := libManufacture.so
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /lib64/libManufacture.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT)/app/HwMMITest/lib/arm64/$(LOCAL_MODULE)
+$(LOCAL_BUILT_MODULE):
+	$(hide) echo "Symlink: $(SYMLINK) -> $(TARGET)"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libimsmedia_jni.so
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /lib64/libimsmedia_jni.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT)/app/ims/lib/arm64/$(LOCAL_MODULE)
+$(LOCAL_BUILT_MODULE):
+	$(hide) echo "Symlink: $(SYMLINK) -> $(TARGET)"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libimscamera_jni.so
+LOCAL_MODULE_CLASS := FAKE
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): TARGET := /lib64/libimscamera_jni.so
+$(LOCAL_BUILT_MODULE): SYMLINK := $(TARGET_OUT)/app/ims/lib/arm64/$(LOCAL_MODULE)
+$(LOCAL_BUILT_MODULE):
+	$(hide) echo "Symlink: $(SYMLINK) -> $(TARGET)"
+	$(hide) mkdir -p $(dir $@)
+	$(hide) mkdir -p $(dir $(SYMLINK))
+	$(hide) rm -rf $@
+	$(hide) rm -rf $(SYMLINK)
+	$(hide) ln -sf $(TARGET) $(SYMLINK)
+	$(hide) touch $@
+
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := symlinks
+LOCAL_MODULE_TAGS := optional
+LOCAL_POST_INSTALL_CMD := \
+        mkdir -p $(PRODUCT_OUT)/vendor/app/ims/lib/arm64; \
+        ln -sf /vendor/lib64/libimscamera_jni.so $(PRODUCT_OUT)/vendor/app/ims/lib/arm64/libimscamera_jni.so; \
+        ln -sf /vendor/lib64/libimsmedia_jni.so $(PRODUCT_OUT)/vendor/app/ims/lib/arm64/libimsmedia_jni.so; \
+
+include $(BUILD_PHONY_PACKAGE)
+
 endif
